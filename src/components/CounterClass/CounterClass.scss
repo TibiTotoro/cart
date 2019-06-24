@@ -2,17 +2,11 @@
 
     display:flex;
     align-items: flex-start;
+    flex-wrap: wrap;
 
-    &__inputWrapper {
-        display:flex;
-        flex-direction: column;   
-         
-    }
-
-    &__input {
-        .error & {
-            outline:1px solid red;
-        }
+    &__text {
+        flex-basis: 100%;
+        margin-top:5px;
     }
 
 }
