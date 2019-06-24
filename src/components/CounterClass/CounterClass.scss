@@ -1,0 +1,18 @@
+.CounterClass {
+
+    display:flex;
+    align-items: flex-start;
+
+    &__inputWrapper {
+        display:flex;
+        flex-direction: column;   
+         
+    }
+
+    &__input {
+        .error & {
+            outline:1px solid red;
+        }
+    }
+
+}

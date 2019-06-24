@@ -1,11 +1,13 @@
 let path = require('path');
 
+
 let conf = {
     entry: './src/main.js',
     output: {
         path: path.resolve(__dirname, './dist/'),
         filename: 'main.js',
-        publicPath: 'dist/'
+        publicPath: 'dist/',
+        
     },
     module: {
         rules: [
@@ -22,9 +24,23 @@ let conf = {
                         ]
                     }
                 }
-            }
-        ]
-    }
-};
+            },
+            {
+                test: /\.scss$/,
+                exclude: /node_modules/,
+                use: [{
+                    loader: "style-loader"
+                }, {
+                    loader: "css-loader"
+                }, {
+                    loader: "sass-loader",
+                   
+                }]
+     
+            },
 
+        ]
+    },
+   
+};
 module.exports = conf;
