@@ -1,26 +1,17 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import App from './app.js';
+import App from './app';
 
-ReactDom.render(<App/>, document.querySelector('#app'));
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-/*
-    let hr = React.createElement('hr');
-    let div = React.createElement('div', {className: 'test'}, [hr]);
+import {Provider} from 'mobx-react';
+import stores from '~s';
 
-    <div className="test">
-        <span>Hello!</span>    
-        <hr/>
-    </div>
-*/
+stores.products.load().then(() => {
+    ReactDom.render(<Provider stores={stores}>
+        <App/>
+    </Provider>, document.querySelector('#app'));
+});
 
-/*
-    class -> className
-    
-    events
-        oninput -> onChange
-        onchange -> can`t
-        ondblclick -> onDoubleClick
+stores.cart.load();
 
-    some={x}
-*/
